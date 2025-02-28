@@ -40,8 +40,8 @@ def find_closet_question(user_query, vectorizer,question_vectors,df):
 st.title("SVCEW College Chatbot")
 st.write("Welcome to the college CHATBOT! Ask me anything about the College")
 
-for message in st.sesion_state.messages:
-  with st.chat_messages(message["role"]):
+for message in st.session_state.messages:
+  with st.chat_message(message["role"]):
      st.markdown(message["content"])
 
 if prompt := st.chat_input("Say something..."):
