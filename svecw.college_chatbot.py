@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import google.generativeai as genai
 from sklearn.metrics.paiwise import cosine_similarity
-from sklearn.feature_extraction.text import TfidVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 st.set_page_config(page_title="Svcew College Chatbot", layout="centered")
 
@@ -21,7 +21,7 @@ df=df.fillna("")
 df['Question'] = df['Question'].str.lower()
 df['Answer'] = df['Answer'].str.lower()
 
-vectorizer=TfidVectorizer()
+vectorizer=TfidfVectorizer()
 question_vectors = vectorizer.fit_transform(df['Question'])
 
 API_KEY = AIzaSyCXantc9BzU8YCi47nNT5DQX_qQElGyQro
