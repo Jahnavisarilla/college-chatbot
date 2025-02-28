@@ -49,11 +49,11 @@ if prompt := st.chat_input("Say something..."):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-  closet_answer=find_closet_question(prompt,vectorizer,question_vectors,df)
-  if closet_answer:
-    st.session_state.messages.append({"role":"assistant","comtent": closet_answer})
+  closest_answer=find_closet_question(prompt,vectorizer,question_vectors,df)
+  if closest_answer:
+    st.session_state.messages.append({"role":"assistant","comtent": closest_answer})
     with st.chat_messages("assistant"):
-      st.markdown(closet_answer)
+      st.markdown(closest_answer)
   else:
     try:
       response = model.generate_content(prompt)
