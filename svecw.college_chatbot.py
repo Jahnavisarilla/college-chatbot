@@ -61,4 +61,4 @@ if prompt := st.chat_input("Say something..."):
         with st.chat_messages("assistant"):
           st.markdown(response.text)
       except Exception as e:
-        st.error(f"Sorry, I couldn't generate aresponse. Error: {e} )
+        st.error(f"Sorry, I couldn't generate a response. Error: {e}")
