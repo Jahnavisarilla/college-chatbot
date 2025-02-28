@@ -49,16 +49,16 @@ if prompt := st.chat_input("Say something..."):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-  closest_answer=find_closest_question(prompt,vectorizer,question_vectors,df)
-  if closest_answer:
-    st.session_state.messages.append({"role":"assistant","comtent": closest_answer})
-    with st.chat_messages("assistant"):
-      st.markdown(closest_answer)
-  else:
-    try:
-      response = model.generate_content(prompt)
-      st.session_state.messages.append({"role":"assistant","comtent": response.text})
+    closest_answer = find_closest_question(prompt,vectorizer,question_vectors,df)
+    if closest_answer:
+      st.session_state.messages.append({"role":"assistant","comtent": closest_answer})
       with st.chat_messages("assistant"):
-      st.markdown(response.text)
-    except Exception as e:
-      st.error(f"Sorry, I couldn't generate aresponse. Error: {e} )
+        st.markdown(closest_answer)
+    else:
+      try:
+        response = model.generate_content(prompt)
+        st.session_state.messages.append({"role":"assistant","comtent": response.text})
+        with st.chat_messages("assistant"):
+          st.markdown(response.text)
+      except Exception as e:
+        st.error(f"Sorry, I couldn't generate aresponse. Error: {e} )
