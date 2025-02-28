@@ -27,7 +27,7 @@ question_vectors = vectorizer.fit_transform(df['Question'])
 API_KEY = "AIzaSyCXantc9BzU8YCi47nNT5DQX_qQElGyQro"
 
 genai.configure(api_key=API_KEY)
-model=genai.generativeMode('gemini-1.5=flash')
+model=genai.GenerativeMode('gemini-1.5=flash')
 
 def find_closet_question(user_query, vectorizer,question_vectors,df):
   query_vector = vectorizer.transform([user_query.lower()])
